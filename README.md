@@ -104,3 +104,43 @@ Futuras Mejoras
 
 
 3. Despliegue en plataformas como Heroku o Railway.
+
+CREATE DATABASE IF NOT EXISTS instituto;
+USE instituto;
+
+-- Tabla para estudiantes
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    enrollment_date DATE NOT NULL
+);
+
+-- Tabla para profesores
+CREATE TABLE teachers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    hire_date DATE NOT NULL
+);
+
+-- Tabla para cursos
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(id)
+);
+
+Pasos para importar las tablas:
+
+1. Copia este código en tu gestor de MySQL o terminal.
+
+
+2. Ejecuta los comandos para crear la base de datos y las tablas.
+
+
+3. Verifica que las tablas estén creadas ejecutando:
+
+SHOW TABLES;
